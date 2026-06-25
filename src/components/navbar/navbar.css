@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.2rem 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #0a0a0a;
+    border-bottom: 3px solid #FFD700;
+}
+
+.nav-box.sticky-on {
+    background: #0a0a0a;
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.logo-circle {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #FFD700, #B8960F);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    border: 1px solid #B8960F;
+}
+
+.brand-group:hover .logo-circle {
+    transform: rotate(360deg) scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-titles {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.3rem;
+    line-height: 1;
+}
+
+.name-main {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.name-sub {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #FFD700;
+    letter-spacing: 1px;
+}
+
+.menu-list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.menu-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.menu-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FFD700;
+    transition: width 0.3s ease;
+}
+
+.menu-list a:hover {
+    color: #FFD700;
+}
+
+.menu-list a:hover::after {
+    width: 100%;
+}
+
+.cta-white {
+    background: #FFD700;
+    color: #000 !important;
+    padding: 0.6rem 1.5rem !important;
+    border-radius: 40px;
+    font-weight: 700 !important;
+}
+
+.cta-white::after {
+    display: none !important;
+}
+
+.cta-white:hover {
+    background: #FFE44D;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    z-index: 1001;
+}
+
+.burger .line {
+    width: 28px;
+    height: 2.5px;
+    background: #FFD700;
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger.active .line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+@keyframes slideIn {
+    from {
+        right: -100%;
+    }
+
+    to {
+        right: 0;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes overlayFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-box {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-box.sticky-on {
+        padding: 0.7rem 1.5rem;
+    }
+
+    .logo-circle {
+        width: 44px;
+        height: 44px;
+    }
+
+    .name-main {
+        font-size: 1rem;
+    }
+
+    .name-sub {
+        font-size: 1rem;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .menu-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background: #0a0a0a;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        border-left: 2px solid #FFD700;
+        padding: 2rem;
+    }
+
+    .menu-list.open {
+        right: 0;
+        animation: slideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .menu-list a {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        opacity: 0;
+    }
+
+    .menu-list.open a {
+        animation: fadeInUp 0.4s ease forwards;
+    }
+
+    .menu-list.open a:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .menu-list.open a:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .menu-list.open a:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .menu-list.open a:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .menu-list a::after {
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .menu-list a:hover::after {
+        width: 50%;
+    }
+
+    .cta-white {
+        margin-top: 0.5rem;
+        width: auto;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-box {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-box.sticky-on {
+        padding: 0.6rem 1rem;
+    }
+
+    .logo-circle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .name-main {
+        font-size: 0.85rem;
+    }
+
+    .name-sub {
+        font-size: 0.85rem;
+    }
+
+    .menu-list {
+        width: 85%;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .menu-list a {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+
+    .burger .line {
+        width: 24px;
+        height: 2px;
+    }
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    animation: overlayFade 0.3s ease;
+}

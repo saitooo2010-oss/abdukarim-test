@@ -1,0 +1,871 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.service-container {
+    width: 100%;
+    min-height: 100vh;
+    /* background: #050505; */
+}
+
+.background-img {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.background-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.081), rgba(0, 0, 0, 0.021));
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.header-text h2 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.header-text h2 span {
+    background: linear-gradient(135deg, #FFD700, #D4AF37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.header-text p {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.15);
+    padding: 0.7rem 2rem;
+    border-radius: 40px;
+}
+
+.tagline span {
+    color: #FFD700;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.prices-services {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.service-item {
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-8px);
+    border-color: #FFD700;
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.1);
+}
+
+.service-icon {
+    margin-bottom: 1.5rem;
+}
+
+.service-icon svg {
+    transition: all 0.3s ease;
+}
+
+.service-item:hover .service-icon svg {
+    transform: scale(1.1);
+}
+
+.service-item h2 {
+    color: #FFD700;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.service-header svg {
+    width: 30px;
+    height: 30px;
+    color: #FFD700;
+}
+
+.service-header h2 {
+    margin-bottom: 0;
+}
+
+.size {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.price-usd {
+    color: rgba(255, 215, 0, 0.7);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.3rem;
+}
+
+.services-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.gallery-title {
+    color: #FFD700;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.gallery-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: #FFD700;
+}
+
+.featured-image-container {
+    max-width: 100%;
+    margin: 2rem auto 3rem auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.featured-service-image {
+    width: 40%;
+    height: 32vh;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featured-service-image:hover {
+    transform: scale(1.02);
+    border-color: #FFD700;
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    border-color: #FFD700;
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+}
+
+.satisfaction {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.5));
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.satisfaction-icon {
+    margin-bottom: 1rem;
+}
+
+.satisfaction h2 {
+    color: #FFD700;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.satisfaction-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.stars span {
+    color: #FFD700;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
+
+.stars p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+.about-cta {
+    background: linear-gradient(135deg, #FFD700, #B8960F);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    margin: 2rem auto 4rem;
+    max-width: 700px;
+}
+
+.about-cta h3 {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.about-cta-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: #000;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.about-cta-btn:hover {
+    transform: translateY(-3px);
+    background: #1a1a1a;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    width: 80vh;
+    height: 80vh;
+    max-width: 800px;
+    max-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    border: 2px solid #FFD700;
+    overflow: hidden;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    background: #000;
+}
+
+.modal-content img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 70px rgba(255, 217, 0, 0.144);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #FFD700;
+    font-size: 36px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0 10px;
+    line-height: 1;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content {
+    animation: modalFadeIn 0.2s ease;
+}
+
+.repair-process {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(5, 5, 5, 0.98));
+    border-radius: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.process-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.process-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.process-header h2 span {
+    background: linear-gradient(135deg, #FFD700, #D4AF37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.process-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border-left: 3px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    background: rgba(255, 215, 0, 0.05);
+    transform: translateX(10px);
+}
+
+.step-icon {
+    min-width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #FFD700, #D4AF37);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: #000;
+}
+
+.step-content h3 {
+    color: #FFD700;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.step-content p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .prices-services {
+        gap: 1.5rem;
+        padding: 3rem 1.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .featured-service-image {
+        width: 60%;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+}
+
+/* Планшеты и большие телефоны (до 768px) */
+@media (max-width: 768px) {
+    .background-img {
+        height: 70vh;
+        min-height: 500px;
+    }
+
+    .header-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        padding: 0 15px;
+    }
+
+    .header-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .header-text p {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+        padding: 0.4rem 1.2rem;
+    }
+
+    .tagline span {
+        font-size: 0.8rem;
+    }
+
+    .prices-services {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .service-item {
+        max-width: 400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .services-gallery {
+        padding: 2rem 1.5rem;
+    }
+
+    .gallery-title {
+        font-size: 1.8rem;
+    }
+
+    .featured-service-image {
+        width: 80%;
+        border-radius: 16px;
+    }
+
+    .featured-image-container {
+        margin: 1.5rem auto 2rem auto;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .satisfaction {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .about-cta {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .modal-content {
+        width: 90vw;
+        height: 90vw;
+        max-width: 500px;
+        max-height: 500px;
+    }
+
+    .modal-close {
+        top: 5px;
+        right: 10px;
+        font-size: 28px;
+        padding: 0 8px;
+    }
+
+    .repair-process {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+
+    .process-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .process-description {
+        font-size: 0.95rem;
+        padding: 0 1rem;
+    }
+
+    .process-step {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .step-icon {
+        min-width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+    }
+
+    .step-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .step-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .step-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Маленькие телефоны (до 576px) */
+@media (max-width: 576px) {
+    .background-img {
+        height: 60vh;
+        min-height: 450px;
+    }
+
+    .header-text h2 {
+        font-size: 2rem;
+    }
+
+    .header-text p {
+        font-size: 0.9rem;
+    }
+
+    .tagline {
+        padding: 0.3rem 1rem;
+    }
+
+    .tagline span {
+        font-size: 0.7rem;
+    }
+
+    .service-item {
+        padding: 1.5rem;
+    }
+
+    .service-item h2 {
+        font-size: 1.3rem;
+    }
+
+    .price {
+        font-size: 1rem;
+    }
+
+    .gallery-title {
+        font-size: 1.5rem;
+    }
+
+    .gallery-title::after {
+        width: 50px;
+    }
+
+    .featured-service-image {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 95vw;
+        height: 95vw;
+    }
+
+    .modal-close {
+        top: 0px;
+        right: 5px;
+        font-size: 24px;
+        padding: 0 6px;
+    }
+
+    .process-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .process-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+}
+
+/* Очень маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .background-img {
+        height: 50vh;
+        min-height: 400px;
+    }
+
+    .header-text {
+        width: 95%;
+        padding: 0 12px;
+    }
+
+    .header-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .header-text p {
+        font-size: 0.8rem;
+    }
+
+    .tagline {
+        padding: 0.25rem 0.8rem;
+    }
+
+    .tagline span {
+        font-size: 0.6rem;
+    }
+
+    .service-item {
+        padding: 1.2rem;
+    }
+
+    .service-item h2 {
+        font-size: 1.2rem;
+    }
+
+    .price {
+        font-size: 0.95rem;
+    }
+
+    .service-icon svg {
+        width: 45px;
+        height: 45px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .featured-service-image {
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    .featured-image-container {
+        margin: 1rem auto 1.5rem auto;
+    }
+
+    .satisfaction h2 {
+        font-size: 1.2rem;
+    }
+
+    .satisfaction-text {
+        font-size: 0.85rem;
+    }
+
+    .stars span {
+        font-size: 1.2rem;
+    }
+
+    .about-cta h3 {
+        font-size: 1.1rem;
+    }
+
+    .about-cta-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .process-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .process-description {
+        font-size: 0.85rem;
+    }
+
+    .step-content h3 {
+        font-size: 1rem;
+    }
+
+    .step-content p {
+        font-size: 0.8rem;
+    }
+
+    .process-step:hover {
+        transform: translateX(0);
+    }
+}
+
+/* Альбомная ориентация на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+    .background-img {
+        height: 100vh;
+        min-height: 300px;
+    }
+
+    .header-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .header-text p {
+        font-size: 0.9rem;
+    }
+
+    .prices-services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .repair-process {
+        margin: 1rem;
+    }
+
+    .process-step {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+/* Для экранов с высоким разрешением (ретина) */
+@media (min-width: 1400px) {
+
+    .prices-services,
+    .services-gallery,
+    .repair-process {
+        max-width: 1400px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Улучшения для тач-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .service-item:hover {
+        transform: none;
+    }
+
+    .service-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    .gallery-grid img:hover {
+        transform: none;
+    }
+
+    .gallery-grid img:active {
+        transform: scale(0.98);
+    }
+
+    .about-cta-btn:hover {
+        transform: none;
+    }
+
+    .about-cta-btn:active {
+        transform: scale(0.96);
+    }
+}
