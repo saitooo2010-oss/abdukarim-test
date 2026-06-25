@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
 import './stats.css';
 
-const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_BASE = isLocal ? 'http://localhost:3000' : 'https://srv-d8udg45aeets738tmvfg.onrender.com';
+const API_BASE = 'https://stats-server-77ge.onrender.com';
 
 const fmt = (n) => {
   if (!n && n !== 0) return '0';
@@ -43,7 +42,9 @@ export default function Stats() {
   };
 
   const formatTimeLabel = (iso) => {
+    if (!iso) return '';
     const d = new Date(iso);
+    if (isNaN(d.getTime())) return iso;
     const hours = String(d.getHours()).padStart(2, '0');
     const mins = String(d.getMinutes()).padStart(2, '0');
     const day = String(d.getDate()).padStart(2, '0');
@@ -56,6 +57,7 @@ export default function Stats() {
   const chartOptions = {
     chart: {
       type: 'area',
+      height: 350,
       background: 'transparent',
       toolbar: { show: false },
       animations: {
@@ -102,6 +104,7 @@ export default function Stats() {
       {
         breakpoint: 768,
         options: {
+          chart: { height: 280 },
           xaxis: { labels: { style: { fontSize: '9px' } } },
           yaxis: { labels: { style: { fontSize: '9px' } } },
         },
@@ -109,6 +112,7 @@ export default function Stats() {
       {
         breakpoint: 480,
         options: {
+          chart: { height: 220 },
           xaxis: { labels: { show: false } },
           markers: { size: 2 },
           stroke: { width: 1.5 },
@@ -155,7 +159,7 @@ export default function Stats() {
         ) : stats.chartData.length === 0 ? (
           <p className="no-data">No data for this period</p>
         ) : (
-          <Chart options={chartOptions} series={series} type="area" width="100%" />
+          <Chart options={chartOptions} series={series} type="area" width="100%" height={350} />
         )}
       </div>
     </div>
